@@ -1,0 +1,238 @@
+/*!
+ * pagepiling.js 1.5.6
+ *
+ * https://github.com/alvarotrigo/pagePiling.js
+ * @license MIT licensed
+ *
+ * Copyright (C) 2016 alvarotrigo.com - A project by Alvaro Trigo
+ */
+ html, body {
+    overflow:hidden;
+    margin:0;
+    padding:0;
+
+    /*Avoid flicker on slides transitions for mobile phones #336 */
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.pp-section {
+    height:100%;
+    position:absolute;
+    width:100%;
+    
+    /* fixes flickering in firefox*/
+    backface-visibility: hidden; 
+}
+.pp-easing {
+    /* -webkit-transition: all 1000ms cubic-bezier(0.550, 0.085, 0.000, 0.990);
+    -moz-transition: all 1000ms cubic-bezier(0.550, 0.085, 0.000, 0.990);
+    -o-transition: all 1000ms cubic-bezier(0.550, 0.085, 0.000, 0.990);
+    transition: all 1000ms cubic-bezier(0.550, 0.085, 0.000, 0.990); */
+    /* custom */
+    /* -webkit-transition-timing-function: cubic-bezier(0.550, 0.085, 0.000, 0.990);
+    -moz-transition-timing-function: cubic-bezier(0.550, 0.085, 0.000, 0.990);
+    -o-transition-timing-function: cubic-bezier(0.550, 0.085, 0.000, 0.990);
+    transition-timing-function: cubic-bezier(0.550, 0.085, 0.000, 0.990); */
+
+    transition: ease-in;
+    /* custom */
+}
+#pp-nav {
+    position: fixed;
+    z-index: 100;
+    margin-top: -32px;
+    top: 50%;
+    opacity: 1;
+}
+#pp-nav.right {
+    right: 17px;
+}
+#pp-nav.left {
+    left: 17px;
+}
+.pp-section.pp-table{
+    display: table;
+}
+.pp-tableCell {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+}
+.pp-slidesNav{
+    position: absolute;
+    z-index: 4;
+    left: 50%;
+    opacity: 1;
+}
+.pp-slidesNav.bottom {
+    bottom: 17px;
+}
+.pp-slidesNav.top {
+    top: 17px;
+}
+#pp-nav ul,
+.pp-slidesNav ul {
+  margin: 0;
+  padding: 0;
+}
+#pp-nav li,
+.pp-slidesNav li {
+    display: block;
+    width: 14px;
+    height: 13px;
+    margin: 7px;
+    position:relative;
+}
+.pp-slidesNav li {
+    display: inline-block;
+}
+#pp-nav li a,
+.pp-slidesNav li a {
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    text-decoration: none;
+}
+#pp-nav li .active span,
+.pp-slidesNav .active span {
+    background: #333;
+}
+#pp-nav span,
+.pp-slidesNav span {
+    top: 2px;
+    left: 2px;
+    width: 8px;
+    height: 8px;
+    border: 1px solid #000;
+    background: rgba(0, 0, 0, 0);
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+}
+.pp-tooltip {
+    position: absolute;
+    top: -2px;
+    color:#333;
+    font-size: 14px;
+    font-family: arial, helvetica, sans-serif;
+    white-space: nowrap;
+    max-width: 220px;
+}
+.pp-tooltip.right {
+    right: 20px;
+}
+.pp-tooltip.left {
+    left: 20px;
+}
+.pp-scrollable{
+    overflow-y: scroll;
+    height: 100%;
+}
+
+
+
+
+#pp-nav {
+    position: fixed;
+    z-index: 100;
+    top: 58%;
+    opacity: 1;
+    /* transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translate3d(0,-50%,0); */
+    min-width: 200px;
+    max-width: 200px;
+}
+#pp-nav ul li, .fp-slidesNav ul li {
+    display: flex;
+    width: auto;
+    min-height: 60px;
+    position: relative;
+    justify-content: center;
+}
+ .fp-slidesNav ul li {
+	 display: inline-block;
+ }
+ #pp-nav ul li a,
+ .fp-slidesNav ul li a {
+	 display: block;
+	 position: relative;
+	 z-index: 1;
+	 width: 100%;
+	 height: 100%;
+	 cursor: pointer;
+	 text-decoration: none;
+ }
+ #pp-nav ul li a.active span, .fp-slidesNav ul li a.active span, #pp-nav ul li:hover a.active span, .fp-slidesNav ul li:hover a.active span {
+    height: 2px;
+    width: 30px;
+    margin: -6px 0 0 0px;
+    background: var(--bs-blue);
+}
+ #pp-nav ul li a span,
+ .fp-slidesNav ul li a span {
+    position: absolute;
+    z-index: 1;
+    height: 2px;
+    width: 30px;
+    border: 0;
+    background: var(--bs-black);
+    left: 0%;
+    top: -10%;
+    margin: -12px 0 0 0px;
+    /* -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out; */
+ }
+ #pp-nav ul li:hover a span,
+ .fp-slidesNav ul li:hover a span{
+	 /* width: 10px;
+	 height: 10px;
+	 margin: -5px 0px 0px -5px; */
+	 height: 2px;
+	 width: 126px;
+	 /* margin: -6px 0 0 -6px; */
+	 /* border-radius: 100%; */
+	 background: var(--bs-blue);
+	 transition: all 0.3s ease-in-out;
+	 color: var(--bs-blue);
+ }
+ #pp-nav ul li .fp-tooltip {
+    position: absolute;
+    top: 0px;
+    color: var(--bs-darkgray);
+    font-size: 14px;
+    white-space: break-spaces;
+    max-width: 180px;
+    overflow: hidden;
+    display: block;
+    opacity: 1;
+    width: auto;
+    cursor: pointer;
+    /* color: var(--bs-blue); */
+	color:transparent;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+}
+#pp-nav ul li a.active .fp-tooltip {
+    color: var(--bs-blue);
+}
+ #pp-nav ul li:hover .fp-tooltip,
+ #pp-nav.fp-show-active a.active + .fp-tooltip {
+	 -webkit-transition: opacity 0.2s ease-in;
+	 transition: opacity 0.2s ease-in;
+	 width: auto;
+	 opacity: 1; 
+	 color: var(--bs-blue);
+ }
+ #pp-nav ul li .fp-tooltip.fp-right {
+	 right: 20px;
+ }
+ #pp-nav ul li .fp-tooltip.fp-left {
+	 left: 0px;
+ }
