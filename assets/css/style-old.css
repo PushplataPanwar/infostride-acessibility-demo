@@ -6316,7 +6316,8 @@
       background: linear-gradient(117deg, #fff -10.9%, #c2dbf2 232.71%);
     }
   
-    .addresses-main {
+    .addresses-main { 
+        
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
