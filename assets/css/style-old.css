@@ -985,8 +985,8 @@
     font-size: 1rem;
     font-style: normal;
     font-weight: 500;
-    line-height: 130%;
-  }
+    line-height: 1.5;
+}
   
   .home-bredcrum-nav {
     display: flex;
@@ -1319,7 +1319,7 @@
   .industries-logos .row .col p {
     color: #212121;
     text-align: center;
-    font-size: 16px;
+    font-size: 1em;
     font-style: normal;
     font-weight: 500;
     line-height: 1.5;
