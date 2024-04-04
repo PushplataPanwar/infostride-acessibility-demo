@@ -42,19 +42,7 @@
   a {
     text-decoration: none;
   }
-  .skip:focus {
-    position: static;
-    width: auto;
-    height: auto;
-  }
-  .skip {
-    position: absolute;
-    left: -10000px;
-    top: auto;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-  }
+  
   .skip-main-cnt,
   .skip-footer {
     background: #2b62a3;
