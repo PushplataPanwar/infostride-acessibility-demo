@@ -1322,10 +1322,9 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
-    line-height: 130%;
+    line-height: 1.5;
     margin-bottom: 0px;
-  }
-  
+}
   .industries-logos .row .col img {
     width: 100%;
     max-width: 60px;
