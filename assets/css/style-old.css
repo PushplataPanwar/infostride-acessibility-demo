@@ -1100,7 +1100,7 @@
     margin-bottom: 20px;
     display: inline-flex;
     font-family: "Lato", sans-serif;
-    font-size: 14px;
+    font-size: 1em;
     font-style: normal;
     font-weight: 800;
     line-height: 120%;
@@ -1742,7 +1742,7 @@
     padding: 0px 4px;
   }
   .copyright-desk p {
-    font-size: 14px;
+    font-size: 0.9em;
   }
   
   /************************************Competencies-->*************************************************/
